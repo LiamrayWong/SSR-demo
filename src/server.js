@@ -11,3 +11,18 @@ const renderer = createBundleRenderer(serverBundle, {
   template,  // 使用HTML模板
   clientManifest // 将客户端的构建结果清单传入
 });
+
+
+const express = require('express');
+const app = express();
+
+
+app.get('*', function(req, res) {
+  renderer.renderToString({}, (err, html) => {
+    if (err) {
+      res.send('500 server error');
+      return;
+    }
+    res.send(html);
+  })
+});
