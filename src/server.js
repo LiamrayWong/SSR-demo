@@ -12,8 +12,7 @@ const renderer = createBundleRenderer(serverBundle, {
   clientManifest
 });
 
-
-
+app.use(express.static(path.resolve(process.cwd(), 'dist')));
 
 app.get('*', function(req, res) {
   renderer.renderToString({}, (err, html) => {
