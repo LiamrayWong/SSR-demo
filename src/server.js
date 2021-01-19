@@ -25,5 +25,5 @@ app.get('*', function(req, res) {
 });
 
 app.listen(3001, function() {
-  console.log('listen:3001');
+  console.log('listen:http://localhost:3001/');
 });

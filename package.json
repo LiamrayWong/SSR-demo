@@ -23,6 +23,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "vue-router": "^3.4.9",
     "vue-server-renderer": "^2.6.12",
     "vue-template-compiler": "^2.6.11",
     "webpack-node-externals": "^2.5.2"
