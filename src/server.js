@@ -15,7 +15,10 @@ const renderer = createBundleRenderer(serverBundle, {
 app.use(express.static(path.resolve(process.cwd(), 'dist')));
 
 app.get('*', function(req, res) {
-  renderer.renderToString({}, (err, html) => {
+  const context = {
+    url: req.url
+  };
+  renderer.renderToString(context, (err, html) => {
     if (err) {
       res.send('500 server error');
       return;
