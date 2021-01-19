@@ -1,5 +1,5 @@
 const TARGET_NODE = process.env.WEBPACK_TARGET === 'node';
-const serverConfig = require('./vue.server.config');
+const serverConfig = require('./vue.server.config.js  ');
 const clientConfig = require('./vue.client.config');
 
 if (TARGET_NODE) {

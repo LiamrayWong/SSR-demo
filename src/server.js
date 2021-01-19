@@ -1,20 +1,18 @@
-//加载服务端构建结果
-const path = require('path');
-const serverBundle = path.resolve(process.cwd(), 'serverDist', 'vue-ssr-server-bundle.json');
+const express = require('express');
 const {createBundleRenderer} = require('vue-server-renderer');
-//加载客户端构建结果
+const path = require('path');
+const fs = require('fs');
+const app = express();
+const serverBundle = path.resolve(process.cwd(), 'serverDist', 'vue-ssr-server-bundle.json');
 const clientManifestPath = path.resolve(process.cwd(), 'dist', 'vue-ssr-client-manifest.json');
-const clientManifest = require(clientManifestPath);
-//创建 html 渲染器
+const clientManifest = JSON.parse(fs.readFileSync(clientManifestPath, 'utf-8'));
 const template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8');
 const renderer = createBundleRenderer(serverBundle, {
-  template,  // 使用HTML模板
-  clientManifest // 将客户端的构建结果清单传入
+  template,
+  clientManifest
 });
 
 
-const express = require('express');
-const app = express();
 
 
 app.get('*', function(req, res) {
@@ -25,4 +23,8 @@ app.get('*', function(req, res) {
     }
     res.send(html);
   })
+});
+
+app.listen(3001, function() {
+  console.log('listen:3001');
 });
