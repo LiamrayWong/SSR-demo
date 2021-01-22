@@ -1,24 +1,22 @@
 # ssr-demo
 
-## Project setup
+
 ```
-yarn install
+npm install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
+### build client
 ```
 yarn build
 ```
 
-### Lints and fixes files
+### build server
 ```
-yarn lint
+yarn build:server
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### npm run server
+```
+yarn serve
+```
+open http://localhost:3001
